@@ -1,0 +1,12 @@
+<div class="post-entry col-md-12">
+	<div class="post-title">
+		<%= @post.title %>
+	</div>
+
+	<div class="row">
+		<article class="col-sm-12 col-md-7 col-md-offset-1 post-content">
+			<%= sanitize @post.content %>
+		</article>
+		<%= render partial: 'shared/function_tips', locals: {type: "watch", watch_count: @post.watch_count} %>
+	</div>
+</div>

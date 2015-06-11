@@ -1,0 +1,17 @@
+<% provide(:title, '登录') %>
+
+<%= simple_form_for :session, url: sessions_path, html: { class: "form-horizontal"} do |f| %>
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= f.input :name, input_html: { maxlength: 50 }, autofocus: true %>
+
+    <%= f.input :password, input_html: { maxlength: 30 } %>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" checked="false" name="remember_me"> 记住我
+      </label>
+    </div>
+
+    <%= f.button :submit, "登录", class: 'btn-lg btn-block', data: { disable_with: '登录中...' } %>
+  </div>
+<% end %>

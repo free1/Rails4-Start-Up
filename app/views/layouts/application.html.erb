@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title><%= full_title(yield(:title)) %></title>
+  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta property="qc:admins" content="7035666755167352112563757" />
+  <meta property="wb:webmaster" content="26f98eace92baa92" />
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+	<!-- header -->
+	<%= render 'layouts/header' %>
+	
+	<div class="container">
+		<!-- 顶部提示 -->
+		<% flash.each do |key, value| %>
+			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+			<!-- <div class="alert alert-<%= key %>"><%= value %></div> -->
+		<% end %>
+
+		<%= yield %>
+	</div>
+	<!-- footer -->
+	<%= render 'layouts/footer' %>
+	<script>
+		$.ajaxSetup({
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+	</script>
+	<%= yield :script %>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<% provide(:title, '账户信息') %>
+
+<%= render 'shared/setting_nav' %>
+
+<h2>账户信息</h2>
+
+<div class="col-sm-12">
+	<h4>设置邮箱</h4>
+
+	<%= simple_form_for @user, html: { class: "form-horizontal" } do |f| %>
+		<div class="col-sm-8 col-sm-offset-2">
+			<%= f.input :email, input_html: { disabled: true } %>
+			<%= f.input :is_email_push, as: :radio_buttons, collection: [['true', '是'], ['false', '否']],
+						label_method: :last, value_method: :first %>
+
+			<br/>
+			<%= f.button :submit, "更新", data: { disable_with: '更新中...' } %>
+		</div>
+	<% end %>
+</div>
+
+<div class="col-sm-12">
+	<h4>微信信息</h4>
+
+	<%= simple_form_for @user, html: { class: "form-horizontal" } do |f| %>
+		<div class="col-sm-8 col-sm-offset-2">
+			<%= f.simple_fields_for :wechat_info do |build| %>
+				<%= build.input :public_name, autofocus: true %>
+				<%= build.input :number %>
+
+				<%= build.input :qr_code, as: :hidden, input_html: { id: 'qr_code_path' } %>
+				<%= user_avatar(@user.wechat_info.qr_code, '100x100', 'show_cover_path') %>
+				<a class="btn btn-info" id="pickfiles">上传微信二维码</a>
+
+				<%= build.input :keyword %>
+				<br/>
+				<%= f.button :submit, "更新", data: { disable_with: '更新中...' } %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+<%= javascript_include_tag 'upload/image_upload' %>
+<script>
+	$(function (){
+		imageUpload.coverUploader('pickfiles', $('#show_cover_path'), $('#qr_code_path'));
+	});
+</script>

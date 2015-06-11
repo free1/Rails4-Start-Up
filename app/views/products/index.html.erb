@@ -1,0 +1,26 @@
+<div class="content-side">
+  <p class="section-name">选择分类</p>
+  <ul class="section-value">
+    <% @categories.each do |category| %>
+      <%= nav_link category.name, products_path(category: category.name), "", true %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="content-main">
+  <% @products.each do |product| %>
+    <div class="col-sm-6 col-md-4">
+    <article class="trip-g">
+      <%= link_to image_tag(product.cover_path_with_size("330", "200")), product, class: "cover" %>
+      <div class="trip-c">
+        <h1><%= product.title %></h1>
+        <div class="trip-desc"><%= truncate(strip_tags(product.describe), length: 30) %></div>
+      </div>
+
+      <div class="trip-collect glyphicon glyphicon-star"><%= product.user_collect_products_count %></div>
+    </article>
+    </div>
+  <% end %>
+</div>
+
+<%= will_paginate @products, renderer: BootstrapPagination::Rails %>

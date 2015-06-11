@@ -1,0 +1,12 @@
+<%%= simple_form_for @<%= singular_table_name %>, validate: true, html: { class: "form-horizontal"} do |f| %>
+  <%%#= f.error_notification %>
+
+  <div class="col-sm-8 col-sm-offset-2">
+	  <%- attributes.each do |attribute| -%>
+	    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+	  <%- end -%>
+		
+		<br/><br/>
+    <%%= f.button :submit, "发布", class: 'btn-lg btn-block', data: { disable_with: '发布中...' } %>
+  </div>
+<%% end %>

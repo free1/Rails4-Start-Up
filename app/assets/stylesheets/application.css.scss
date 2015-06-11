@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery.atwho
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// 手动调整
+.container-fluid {
+	width: 900px;
+}
+
+.help-inline {
+	color: red;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+	color: black;
+}
+
+img {
+	max-width: 600px;
+	max-height: 600px;
+}
+
+.link_class1 {
+	color: black;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.active_dropdown_menu {
+	text-decoration: none;
+	color: #262626;
+	background-color: whitesmoke;
+}
+
+.min-height-130 {
+	min-height: 130px;
+}
+
+.post-title {
+	height: 130px;
+}
+
+.image-min-size {
+	min-height: 200px;
+	min-width: 200px;
+}
+
+.avatar-image {
+	border-radius: 4px;
+}
+
+
+$lightGray: #999;
+$grayMediumLight: #eaeaea;
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+/* universal */
+html {
+	over-flow-y: scroll;
+}
+body {
+	background-color: #EBECED;
+	font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+	// padding-top: 60px;
+}
+section {
+	overflow: auto;
+}
+textarea {
+	resize: vertical;
+}
+.center {
+	text-align: center;
+}
+.center h1 {
+	margin-bottom: 10px;
+}
+/* typography */
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+}
+h1 {
+	// font-size: 3em;
+	letter-spacing: -2px;
+	// margin-bottom: 30px;
+	// text-align: center;
+}
+h2 {
+	font-size: 1.7em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-weight: normal;
+	color: $lightGray;
+}
+p {
+	font-size: 1.1em;
+	line-height: 1.7em;
+}
+

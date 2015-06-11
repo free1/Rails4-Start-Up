@@ -1,0 +1,154 @@
+en:
+  # 时间
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大约一小时
+        other: 大约 %{count} 小时
+      about_x_months:
+        one: 大约一个月
+        other: 大约 %{count} 个月
+      about_x_years:
+        one: 大约一年
+        other: 大约 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分钟
+      less_than_x_minutes:
+        one: 不到一分钟
+        other: 不到 %{count} 分钟
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      over_x_years:
+        one: 一年多
+        other: '%{count} 年多'
+      x_days:
+        one: 一天
+        other: '%{count} 天前'
+      x_minutes:
+        one: 一分钟
+        other: '%{count} 分钟前'
+      x_months:
+        one: 一个月
+        other: '%{count} 个月前'
+      x_seconds:
+        one: 一秒
+        other: '%{count} 秒前'
+    prompts:
+      day: 日
+      hour: 时
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  # 分页
+  will_paginate:
+    previous_label: "&#8592; 上一页"
+    next_label: "下一页 &#8594;"
+    page_gap: "&hellip;"
+  # model
+  activerecord:
+    attributes:
+      user: 
+        name: '昵称'
+        avatar_path: '头像'
+        email: '邮箱'
+        password: '密码'
+        password_confirmation: '密码确认'
+        is_email_push: '接收推送邮件'
+        tag_tokens: '用户标签'
+      user_info:
+        gender: '性别'
+        resume: '自我介绍'
+        website: '个人网站'
+      product:
+        title: '题目'
+        cover_path: '封面图'
+        describe: '描述'
+      wechat_info:
+        public_name: '微信公众号名称'
+        number: '微信号'
+        qr_code: '微信二维码'
+        keyword: '关键词'
+      category:
+        name: '标签名'
+      article:
+        title: '栏目名称'
+        content: '栏目介绍'
+        cover_path: '封面图'
+        status: '更新状态'
+        author: '作者'
+      article_list:
+        content: '原文'
+        translate: '翻译'
+        remark_on: '点评'
+        periods: '期数'
+      roll_nav_info: 
+        image_path: '图片'
+      chair: 
+        title: '题目'
+        content: '内容'
+  # 错误提示
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: '必须是可被接受的'
+      blank: '%{attribute} 不能为空'
+      present: '%{attribute} 必须存在'
+      confirmation: '与确认值不匹配'
+      equal_to: "%{attribute} 必须等于 %{count}"
+      greater_than: "必须大于 %{count}"
+      greater_than_or_equal_to: "必须大于或等于 %{count}"
+      inclusion: '不包含于列表中'
+      invalid: '%{attribute} 是无效的'
+      less_than: "必须小于 %{count}"
+      less_than_or_equal_to: "必须小于或等于 %{count}"
+      not_a_number: '不是数字'
+      not_an_integer: '必须是整数'
+      taken: '%{attribute} 已经被使用'
+      too_long:
+        one: "%{attribute} 过长（最长为一个字符）"
+        other: "%{attribute} 过长（最长为 %{count} 个字符）"
+      too_short:
+        one: '%{attribute} 过短（最短为一个字符）'
+        other: "%{attribute} 过短（最短为 %{count} 个字符）"
+      wrong_length:
+        one: '长度非法（必须为一个字符）'
+        other: "%{attribute} 长度非法（必须为 %{count} 个字符）"
+      other_than: "%{attribute} 长度非法（不可为 %{count} 个字符"
+
+  # controller
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: ''
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please review the problems below:"
+    # Labels and hints examples
+    labels:
+      # defaults:
+      #   password: 'Password'
+      # user:
+      #   new:
+      #     name: '昵称'
+      #     email: '邮箱'
+      #     password: '密码'
+      #   edit:
+          # name: '昵称'
+          # avatar_path: '头像'
+      session: 
+        new: 
+          name: '用户名'
+          password: '密码'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+
