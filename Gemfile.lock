@@ -102,7 +102,6 @@ GEM
       capistrano (~> 3.1, >= 3.1.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    chronic (0.10.2)
     chunky_png (1.3.4)
     coderay (1.1.0)
     coercible (1.0.0)
@@ -347,8 +346,6 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    whenever (0.9.4)
-      chronic (>= 0.6.3)
     will_paginate (3.0.7)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
@@ -416,6 +413,5 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
-  whenever
   will_paginate (~> 3.0.6)
   will_paginate-bootstrap
