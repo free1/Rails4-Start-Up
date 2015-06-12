@@ -10,7 +10,7 @@ require 'capistrano/bundler'
 require 'capistrano/rbenv'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
-require 'capistrano3/unicorn'
+# require 'capistrano3/unicorn'
 # require "whenever/capistrano"
 require 'thinking_sphinx/capistrano'
 # require 'capistrano/sidekiq'
