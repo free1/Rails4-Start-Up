@@ -1,12 +1,12 @@
 # paths
-app_path = "/home/deploy/apps/weixin_test"
+app_path = "/root/apps/yanchuquan"
 working_directory "#{app_path}/current"
 pid               "#{app_path}/current/tmp/pids/unicorn.pid"
 
 stderr_path "#{app_path}/current/log/unicorn.log"
 stdout_path "#{app_path}/current/log/unicorn.log"
 
-listen "/tmp/unicorn.weixin_test.sock"
+listen "/tmp/unicorn.yanchuquan.sock"
 worker_processes 3
 timeout 30
 
