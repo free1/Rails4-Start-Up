@@ -24,9 +24,9 @@ set :migration_role, 'db'
 set :assets_roles, [:web, :app]
 
 # unicorn
-# set :unicorn_config_path, "config/unicorn.rb"
-# set :unicorn_roles, [:web, :app]
-# set :unicorn_rack_env, "production"
+set :unicorn_config_path, "config/unicorn.rb"
+set :unicorn_roles, [:web, :app]
+set :unicorn_rack_env, "production"
 
 # set :rails_env, :production
 
@@ -78,12 +78,12 @@ set :thinking_sphinx_rails_env, -> { fetch(:rails_env) || fetch(:stage) }
 # set :sidekiq_pid, "./tmp/pids/sidekiq.pid"
 # set :sidekiq_log, "log/sidekiq.log"
 
-# before 'deploy:publishing', 'deploy:restart'
-# namespace :deploy do
-#   task :restart do
-#     invoke 'unicorn:restart'
-#   end
-# end
+before 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+end
 
 # namespace :deploy do
 
