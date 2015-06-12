@@ -99,7 +99,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'god'
 
 # web server
-gem 'unicorn'
+# gem 'unicorn'
 
 # 备份(直接上传阿里云oos)
 gem 'backup'
