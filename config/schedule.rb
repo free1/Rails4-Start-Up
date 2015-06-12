@@ -19,20 +19,20 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-env :PATH, ENV['PATH']
+# env :PATH, ENV['PATH']
 
-# set :output, "/var/log/cron_log.log"
-set :output, "log/cron.log"
+# # set :output, "/var/log/cron_log.log"
+# set :output, "log/cron.log"
 
-# 定时备份数据
-every :sunday, :at => '5:50 am' do
-	command 'cd /home/deploy/apps/weixin_test/current/ && bundle exec backup perform -t my_backup --config-file config/backup/config.rb'
-end
+# # 定时备份数据
+# every :sunday, :at => '5:50 am' do
+# 	command 'cd /home/deploy/apps/weixin_test/current/ && bundle exec backup perform -t my_backup --config-file config/backup/config.rb'
+# end
 
-# 转存任务
-every 1.minutes do
-	runner "Post.sum_watch_count"
-end
+# # 转存任务
+# every 1.minutes do
+# 	runner "Post.sum_watch_count"
+# end
 
 # 搜索更新
 # every 60.minutes do

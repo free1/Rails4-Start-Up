@@ -48,7 +48,7 @@ gem "hiredis", "~> 0.4.5", :platforms => :ruby
 gem 'redis-objects'
 
 # 定时任务
-gem 'whenever', :require => false
+# gem 'whenever', :require => false
 
 # 后台任务
 gem 'sidekiq'
