@@ -37,3 +37,12 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 * 系统消息。
 * 各种文章基本操作，评论，赞，收藏等。
 * 性能监控。
+
+
+## 简单安装(运行在 Ubuntu 14.04 64位)
+
+* 进入远程服务器将 `install_server_module_to_ubuntu` 中的脚本放入一个文件中。
+* 运行命令 `chmod +x install_server_module_to_ubuntu` 使它变为可执行文件。
+* `exit` 并重新进入服务器。
+* 运行 `rbenv install 2.1.2` 。
+* 运行 `rbenv global 2.1.2` 。
