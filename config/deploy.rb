@@ -33,10 +33,10 @@ set :unicorn_rack_env, "production"
 set :stage, :production
 
 # Default branch is :master
-set :branch, "master"
+set :branch, "yuanchuquan_master"
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:application)}"
+set :deploy_to, "/#{fetch(:deploy_user)}/apps/#{fetch(:application)}"
 
 set :default_stage, "production"
 # Default value for :scm is :git
@@ -83,6 +83,21 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
+end
+
+namespace :deploy do
+
+  desc "after setup"
+  task :setup_config do
+    on roles(:all) do
+      execute "#{fetch(:sudo)} ln -nfs #{fetch(:current_path)}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
+      execute "#{fetch(:sudo)} ln -nfs #{fetch(:current_path)}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
+      execute "#{fetch(:sudo)} mkdir -p #{fetch(:shared_path)}/config"
+      p File.read("config/database.yml"), "#{fetch(:shared_path)}/config/database.yml"
+      p "modify file #{fetch(:shared_path)}."
+    end
+  end
+  after 'deploy:started', 'deploy:setup_config'
 end
 
 # # god

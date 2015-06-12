@@ -1,3 +1,4 @@
+#encoding: utf-8
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -34,6 +35,6 @@ every 1.minutes do
 end
 
 # 搜索更新
-every 60.minutes do
-  rake "ts:index"
-end
+# every 60.minutes do
+#   rake "ts:index"
+# end
