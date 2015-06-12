@@ -85,20 +85,20 @@ set :thinking_sphinx_rails_env, -> { fetch(:rails_env) || fetch(:stage) }
 #   end
 # end
 
-# namespace :deploy do
+namespace :deploy do
 
-#   desc "after setup"
-#   task :setup_config do
-#     on roles(:all) do
-#       execute "#{fetch(:sudo)} ln -nfs #{fetch(:current_path)}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
-#       execute "#{fetch(:sudo)} ln -nfs #{fetch(:current_path)}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
-#       execute "#{fetch(:sudo)} mkdir -p #{fetch(:shared_path)}/config"
-#       p File.read("config/database.yml"), "#{fetch(:shared_path)}/config/database.yml"
-#       p "modify file #{fetch(:shared_path)}."
-#     end
-#   end
-#   after 'deploy:started', 'deploy:setup_config'
-# end
+  desc "after setup"
+  task :setup_config do
+    on roles(:all) do
+      execute "#{fetch(:sudo)} ln -nfs #{fetch(:release_path)}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
+      execute "#{fetch(:sudo)} ln -nfs #{fetch(:release_path)}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
+      execute "#{fetch(:sudo)} mkdir -p #{fetch(:shared_path)}/config"
+      p File.read("config/database.yml"), "#{fetch(:shared_path)}/config/database.yml"
+      p "modify file #{fetch(:shared_path)}."
+    end
+  end
+  after 'deploy:started', 'deploy:setup_config'
+end
 
 # # god
 # namespace :god do
