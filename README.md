@@ -54,3 +54,6 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 gem sources --remove https://rubygems.org/
 gem sources -a https://ruby.taobao.org/
 ```
+
+* 建立各种软链接。
+* 修改nginx，unicorn配置文件。
