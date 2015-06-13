@@ -42,8 +42,10 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 ## 简单安装(运行在 Ubuntu 14.04 64位)
 
 * 进入远程服务器将 `install_server_module_to_ubuntu` 中的脚本放入一个文件中。
-* 运行命令 `chmod +x install_server_module_to_ubuntu` 使它变为可执行文件。
-* `exit` 并重新进入服务器。
+* 运行命令 `chmod +x install_server_module_to_ubuntu` 使它变为可执行文件，并执行 `./install_server_module_to_ubuntu` 。
+* 输入deploy密码， `exit` 并以deploy用户进入服务器。
+* 同样执行 `./install_rails_module_to_deploy` 。
+* 要使rbenv生效需要新开一个deploy控制台。
 * 运行 `rbenv install 2.1.2` 。
 * 运行 `rbenv global 2.1.2` 。
 * 修改capistrano的ip地址。
@@ -54,6 +56,7 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 gem sources --remove https://rubygems.org/
 gem sources -a https://ruby.taobao.org/
 ```
-
-* 建立各种软链接。
+* 安装bundler `gem install bundler` 。
+* 建立各种软链接(todo写入capistrano)。
 * 修改nginx，unicorn配置文件。
+* 本地执行 `cap production deploy` 。
