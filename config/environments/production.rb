@@ -13,6 +13,7 @@ Rails.application.configure do
   # api文档资源
   config.assets.precompile += %w(doc/*.css api_swagger_ui/swagger-ui_rails.*)
   config.assets.precompile += %w(upload/*.js doc/*.js)
+  config.assets.precompile += %w(home.js home.css)
   config.assets.precompile += %w(tools/*.js)
   config.assets.precompile << "emoji/**/*.png"
 
