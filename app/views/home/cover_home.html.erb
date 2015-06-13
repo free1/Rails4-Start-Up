@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<style type="text/css">
-		body {
-			display: table;
-	    position: relative;
-	    width: 100%;
-	    height: 100%;
-			background: url(<%= asset_path "bg#{rand(1..2)}.jpg" %>) no-repeat center center fixed; 
-			-webkit-background-size: cover; 
-			-moz-background-size: cover; 
-			-o-background-size: cover;
-			background-size: cover; 
-		}
-		</style>
+		<meta charset="utf-8">
+		<title>演出圈</title>
+		<%= stylesheet_link_tag    'home', media: 'all' %>
+	  <%= javascript_include_tag 'home' %>
+	  <%= csrf_meta_tags %>
+	  <%= favicon_link_tag 'favicon.ico' %>
 	</head>
 
 		<body>
-			
+			<nav class="navbar-home">
+				<div class="navbar-logo-home">
+					<%= link_to "演出圈", "#" %>
+				</div>
+
+				<ul class="nav-navbar-home">
+					<li><%= link_to '产品概论', '#' %></li>
+					<li><%= link_to '加入我们', '#' %></li>
+					<li><%= link_to '关于', '#' %></li>
+				</ul>
+			</nav>
 		</body>
 </html>
