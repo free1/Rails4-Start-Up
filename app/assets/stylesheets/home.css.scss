@@ -23,6 +23,8 @@ ul li {
 		float: left;
 
 		a {
+			padding-left: 20px;
+			padding-right: 20px;
 			display: inline-block;
 			color: #49c5d7;
 			line-height: 92px;
@@ -39,11 +41,12 @@ ul li {
 
 		li {
 			margin-right: 80px;
+			border-bottom: 3px solid #50c5d6;
 		}
 
 		a {
 			font-weight: 300;
-			color: #49c5d7;
+			color: #50c5d6;
 			font-size: 20px;
 			display: inline-block;
 			height: 80px;
@@ -51,7 +54,7 @@ ul li {
 		}
 
 		a:hover {
-
+			color: HSL(191, 83%, 69%);
 		}
 	}
 }
