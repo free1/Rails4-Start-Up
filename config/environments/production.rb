@@ -11,14 +11,6 @@ Rails.application.configure do
   config.eager_load = false
 
   # api文档资源
-  # config.assets.precompile += %w(api_swagger_ui/reset.css api_swagger_ui/screen.css)
-  # config.assets.precompile += %w(api_swagger_ui/backbone-min.js api_swagger_ui/handlebars-1.js
-  #                                 api_swagger_ui/highlight.js api_swagger_ui/jquery-1.js
-  #                                 api_swagger_ui/jquery.js api_swagger_ui/jquery_002.js
-  #                                 api_swagger_ui/jquery_003.js api_swagger_ui/shred.js
-  #                                 api_swagger_ui/swagger-client.js api_swagger_ui/swagger-oauth.js
-  #                                 api_swagger_ui/swagger-ui.js api_swagger_ui/swagger.js
-  #                                 api_swagger_ui/underscore-min.js)
   config.assets.precompile += %w(doc/*.css api_swagger_ui/swagger-ui_rails.*)
   config.assets.precompile += %w(upload/*.js doc/*.js)
   config.assets.precompile += %w(tools/*.js)
@@ -42,7 +34,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
