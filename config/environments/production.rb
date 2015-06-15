@@ -84,4 +84,4 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
-APP_HOST = 'www.xxx.com'
+APP_HOST = 'http://101.200.235.120'
