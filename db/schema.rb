@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518085631) do
+ActiveRecord::Schema.define(version: 20150615074908) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "trackable_id",   limit: 4
+    t.string   "trackable_type", limit: 255
+    t.integer  "owner_id",       limit: 4
+    t.string   "owner_type",     limit: 255
+    t.string   "key",            limit: 255
+    t.text     "parameters",     limit: 65535
+    t.integer  "recipient_id",   limit: 4
+    t.string   "recipient_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", length: {"owner_id"=>nil, "owner_type"=>100}, using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", length: {"recipient_id"=>nil, "recipient_type"=>100}, using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", length: {"trackable_id"=>nil, "trackable_type"=>100}, using: :btree
 
   create_table "article_lists", force: :cascade do |t|
     t.integer  "article_id", limit: 4
@@ -95,6 +112,8 @@ ActiveRecord::Schema.define(version: 20150518085631) do
     t.string   "author",      limit: 255
     t.integer  "status",      limit: 4,     default: 0
     t.integer  "watch_count", limit: 4,     default: 0
+    t.string   "cover_path",  limit: 255
+    t.string   "source_site", limit: 255
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
@@ -118,6 +137,10 @@ ActiveRecord::Schema.define(version: 20150518085631) do
     t.datetime "updated_at"
     t.integer  "user_id",                     limit: 4
     t.integer  "user_collect_products_count", limit: 4,     default: 0
+    t.string   "location",                    limit: 255
+    t.datetime "show_time"
+    t.integer  "price",                       limit: 4,     default: 1
+    t.integer  "watch_count",                 limit: 4,     default: 0
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
@@ -169,6 +192,7 @@ ActiveRecord::Schema.define(version: 20150518085631) do
     t.string   "listable_type", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "kind",          limit: 4
   end
 
   add_index "user_collects", ["listable_id", "listable_type"], name: "index_user_collects_on_listable_id_and_listable_type", length: {"listable_id"=>nil, "listable_type"=>100}, using: :btree
@@ -182,6 +206,8 @@ ActiveRecord::Schema.define(version: 20150518085631) do
     t.string   "website",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "longitude",  limit: 24,    default: 0.0
+    t.float    "latitude",   limit: 24,    default: 0.0
   end
 
   add_index "user_infos", ["user_id"], name: "index_user_infos_on_user_id", using: :btree

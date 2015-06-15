@@ -5,55 +5,34 @@
 	    </div>
 
 	    <ul class="nav navbar-nav">
-	    	<%#= nav_link '首页', root_path, 'active', true %>
 	    	<%= nav_link '产品概览', '#', 'active', true %>
-	    	<%#= nav_link '精选', "#", 'active', true %>
-	    	<%#= nav_link '用户', users_path, 'active', true %>
 	    	<%= nav_link '加入我们', '#', 'active', true %>
 	    	<%= nav_link '论坛', "#", 'active', true %>
 		</ul>
-		
-		<%#= form_tag search_posts_path, html: {class: "navbar-form navbar-left", role: "search"} %>
-		<!-- <form action="/posts/search" class="navbar-form navbar-left" role="search">
-			<div class="form-group">
-			  <input type="text" name="query" class="form-control" placeholder="Search">
-			</div>
-			<button type="submit" class="btn btn-default">搜索</button>
-		</form> -->
-		<%# end %>
 
 		<ul class="nav navbar-nav navbar-right">
 			<% if signed_in? %>
-			    <li><%= link_to "分享", new_product_path %></li>
+			    <li><%= link_to "发布演出", new_product_path %></li>
 			    <li class="dropdown">
 			      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			      	<%= current_user.name %>
 			      	<span class="caret"></span>
 			      </a>
-			      <!-- <ul class="dropdown-menu" role="menu">
-			        <li><%= link_to '个人主页', user_path(current_user) %></li>
-			        <li><%= link_to '账户设置', edit_user_path(current_user) %></li>
-			        <li><a href="#">我的商品</a></li>
-			        <li><a href="#">我的草稿</a></li>
-			        <li class="divider"></li>
+			      <ul class="dropdown-menu" role="menu">
 			        <li><%= link_to "安全退出", logout_path, method: :delete %></li>
-			      </ul> -->
+			      </ul>
 			    </li>
 			<% else %>
 			    <li class="dropdown">
 			    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			    		登录<span class="caret"></span>
 			    	</a>
-			    	<!-- <ul class="dropdown-menu" role="menu">
-			    		<li><%= link_to "用户名登录", login_path %></li>
+			    	<ul class="dropdown-menu" role="menu">
+			    		<li><%= link_to "登录", login_path %></li>
 			    		<li><%= link_to "注册", new_user_path %></li>
-			    		<li><%= link_to "微博登录", "/auth/weibo" %></li>
-			    		<li><%= link_to "qq登录", "/auth/qq_connect" %></li>
-				    	<li><%= link_to "豆瓣登录", "/auth/douban" %></li>
-			    		<li><%= link_to "github登录", "/auth/github" %></li>
-			    	</ul> -->
+			    	</ul>
 			    </li>
 			<% end %>
 		</ul>
-	</div><!-- /.navbar-collapse -->
+	</div>
 </nav>

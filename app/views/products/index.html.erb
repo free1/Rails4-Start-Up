@@ -1,12 +1,3 @@
-<div class="content-side">
-  <p class="section-name">选择分类</p>
-  <ul class="section-value">
-    <% @categories.each do |category| %>
-      <%= nav_link category.name, products_path(category: category.name), "", true %>
-    <% end %>
-  </ul>
-</div>
-
 <div class="content-main">
   <% @products.each do |product| %>
     <div class="col-sm-6 col-md-4">

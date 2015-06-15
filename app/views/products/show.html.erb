@@ -9,35 +9,13 @@
 
 	<div class="row">
 		<article class="col-sm-12 col-md-7 col-md-offset-1 post-content">
-			<%= image_tag @product.cover_path_with_size("640", "300") %>
+			<div>
+				<%= image_tag @product.cover_path_with_size("640", "300") %>
+			</div>
 			<%= sanitize @product.describe %>
 		</article>
-		<%= render partial: 'shared/function_tips', locals: {type: "collect", product: @product} %>
+		<%#= render partial: 'shared/function_tips', locals: {type: "collect", product: @product} %>
 		<%= render partial: 'shared/function_tips', locals: {type: "info", product: @product} %>
-		<%= render partial: 'shared/function_tips', locals: {type: "category", product: @product} %>
+		<%#= render partial: 'shared/function_tips', locals: {type: "category", product: @product} %>
 	</div>
 </div>
-
-<div class="comment-body" data-users="<%= @comments.map {|c| c.user.name}.uniq %>">
-	<% if @comments.any? %>
-		<% @comments.each do |comment| %>
-				<%= comment.user.name %>
-				<%= emojify(sanitize(comment.content_html)) %>
-			</br>
-		<% end %>
-	<% end %>
-</div>
-
-<%= simple_form_for [@product, @comment] do |f| %>
-	
-	<%= f.input :content, as: :text %>
-	<%= f.button :submit, "保存" %>
-
-<% end %>
-
-<script>
-	$(function(){
-    data = $(".comment-body").data("users");
-    $('textarea').atwho({at:"@", 'data':data});
-	});
-</script>

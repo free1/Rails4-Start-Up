@@ -67,6 +67,10 @@ en:
         title: '题目'
         cover_path: '封面图'
         describe: '描述'
+        location: '演出地点'
+        show_time: '演出时间'
+        price: '票价'
+        
       wechat_info:
         public_name: '微信公众号名称'
         number: '微信号'

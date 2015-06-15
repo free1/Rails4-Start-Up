@@ -13,9 +13,9 @@ class Product < ActiveRecord::Base
 	has_many :comments, as: :commentable
 
 	# 验证
-	validates_presence_of :user, :cover_path
-	validates :title, presence: true, length: { maximum: 30 }
-	validates :describe, presence: true, length: { maximum: 5000 }
+	# validates_presence_of :user, :cover_path
+	# validates :title, presence: true, length: { maximum: 30 }
+	# validates :describe, presence: true, length: { maximum: 5000 }
 	
 	# 排序
 	scope :category_for, ->(category_name) { joins(:categories).where("categories.name = ?", category_name)}

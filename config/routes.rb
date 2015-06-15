@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # 用户相关
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
+  get 'signup' => 'users#new'
   resources :sessions, only: [:new, :create]
   # 第三方登录
   match "/auth/:provider/callback", :to => 'omniauths#create', via: [:get, :post]
@@ -49,13 +50,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  # 抓取内容news
-  resources :posts do
-    collection do
-      get :search
-    end
-  end
-
 
   # 七牛上传文件
   namespace :upload do
@@ -65,9 +59,5 @@ Rails.application.routes.draw do
       end
     end
   end
-
-
-  # 管理员
-  draw :admin
 
 end

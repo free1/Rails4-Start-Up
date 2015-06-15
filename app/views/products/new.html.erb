@@ -4,21 +4,27 @@
 <%= stylesheet_link_tag 'doc/simditor/simditor' %>
 <%= stylesheet_link_tag 'doc/simditor/simditor-mention.css' %>
 
+<h2>创建演出</h2>
+
 <%= simple_form_for @product, html: { class: "form-horizontal"} do |f| %>
   <div class="col-sm-8 col-sm-offset-2">
-    <%= f.input :title, input_html: { maxlength: 30 }, autofocus: true %>
-
-    <%= f.input :describe, as: :text, input_html: { id: 'editor', maxlength: 5000 } %>
-
-    <%= f.input :cover_path, input_html: { id: "cover_path", readonly: true } %>
-    <a class="btn btn-default btn-lg" id="pickfiles">增加图片</a>
-    <br/>
+    <%= f.input :title, input_html: { maxlength: 30, class: 'form-control' }, autofocus: true %>
+    
+    </br>
+    <%= f.input :cover_path, as: :hidden, input_html: { id: "cover_path", readonly: true } %>
     <img src="<%= @product.cover_path %>" id="show_cover_path" width="100" height="100"/>
+    <a class="btn btn-default" id="pickfiles">上传封面图片</a>
 
-    <%= f.association :categories, as: :check_boxes %>
+    <%#= f.input :describe, as: :text, input_html: { id: 'editor', maxlength: 5000 } %>
+    <%= f.input :location, as: :text, input_html: {class: 'form-control'} %>
+    <%= f.input :price, input_html: {class: 'form-control'} %>
+    <%= f.input :show_time %>
+    <%= f.input :describe, input_html: { rows: 30, class: 'form-control' } %>
+    <%#= f.association :categories, as: :check_boxes %>
 
-    </br></br></br>
-    <%= f.button :submit, "发布创意", class: 'btn-lg btn-block', data: { disable_with: '发布中...' } %>
+    </br>
+    <%= f.button :submit, "发布演出", class: 'btn-lg btn-block', data: { disable_with: '发布中...' } %>
+    </br></br>
   </div>
 <% end %>
 
