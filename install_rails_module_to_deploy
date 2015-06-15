@@ -1,12 +1,3 @@
-echo "Install nginx"
-echo ""
-echo "------------------------------------------------------------------------"
-nginx=stable
-echo "deb http://ppa.launchpad.net/nginx/$nginx/ubuntu lucid main" > /etc/apt/sources.list.d/nginx-$nginx-lucid.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
-sudo apt-get install nginx
-
-
 echo ""
 echo ""
 echo "Install rbenv"
