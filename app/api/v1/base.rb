@@ -3,8 +3,6 @@ module V1
     version 'v1', using: :path
     prefix :api
 
-    mount V1::WeiXin::Posts
-    mount V1::WeiXin::Users
-    mount V1::WeiXin::Recommends
+    mount V1::WeiXin::Products
   end
 end

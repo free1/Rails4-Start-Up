@@ -15,7 +15,6 @@ class API < Grape::API
     content_type :json, "application/json;charset=UTF-8"
 
     helpers APIHelpers
-    # helpers ErrorsHelper
 
     class << self
       def logger
@@ -23,7 +22,6 @@ class API < Grape::API
           Rails.logger
         else
           Logger.new("#{Rails.root}/log/api.log")
-          # Logger.new("#{Rails.root}/log/development.log")
         end
       end
 
