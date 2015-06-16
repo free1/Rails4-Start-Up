@@ -85,15 +85,14 @@ namespace :deploy do
   end
 end
 
-namespace :check do
+before 'deploy:check:linked_files', 'deploy:create_symlink'
+namespace :deploy do
   desc '当linked_file不存在时自动创建空文件'
-  task :linked_files do
+  task :create_symlink do
     next unless any? :linked_files
     on release_roles :all do |host|
       linked_files(shared_path).each do |file|
         unless test "[ -f #{file} ]"
-          # error t(:linked_file_does_not_exist, file: file, host: host)
-          # exit 1
           execute :touch, file
         end
       end

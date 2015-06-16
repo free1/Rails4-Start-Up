@@ -1,12 +1,12 @@
 # paths
-app_path = "/home/deploy/apps/weixin_test"
+app_path = "/home/deploy/apps/rails4_start_up"
 working_directory "#{app_path}/current"
 pid               "#{app_path}/current/tmp/pids/unicorn.pid"
 
 stderr_path "#{app_path}/current/log/unicorn.log"
 stdout_path "#{app_path}/current/log/unicorn.log"
 
-listen "/tmp/unicorn.weixin_test.sock"
+listen "/tmp/unicorn.rails4_start_up.sock"
 worker_processes 3
 timeout 30
 
