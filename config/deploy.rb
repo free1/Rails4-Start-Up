@@ -85,10 +85,10 @@ namespace :deploy do
   end
 end
 
-before 'deploy:check:linked_files', 'deploy:create_symlink'
+before 'deploy:check:linked_files', 'deploy:create_linked_files'
 namespace :deploy do
   desc '当linked_file不存在时自动创建空文件'
-  task :create_symlink do
+  task :create_linked_files do
     next unless any? :linked_files
     on release_roles :all do |host|
       linked_files(shared_path).each do |file|
