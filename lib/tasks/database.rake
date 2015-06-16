@@ -10,7 +10,7 @@ namespace :database do
 
     # Change all tables
     connection.tables.each do |table|
-      if ['comments'].include?(table)
+      if ['comments', 'products'].include?(table)
       #if [].include?(table)
         connection.columns(table).each do |column|
           if column.sql_type == "varchar(255)"

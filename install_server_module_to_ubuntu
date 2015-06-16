@@ -5,7 +5,7 @@ echo "deb http://ppa.launchpad.net/nginx/$nginx/ubuntu lucid main" > /etc/apt/so
 echo "------------------------------------------------------------------------"
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
 sudo apt-get update
-sudo apt-get install curl git libssl-dev mysql-server mysql-client libmysqlclient-dev nodejs nginx
+sudo apt-get install curl git libssl-dev mysql-server mysql-client libmysqlclient-dev nodejs nginx libreadline6 libreadline6-dev
 
 echo ""
 echo ""
