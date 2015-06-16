@@ -1,7 +1,7 @@
 lock '3.3.5'
 
 set :application, 'rails4_start'
-set :repo_url, 'git@github.com:free1/Rails4-Start-Up.git'
+set :repo_url, 'https://github.com/free1/Rails4-Start-Up.git'
 
 set :deploy_user, "deploy"
 set :use_sudo, false

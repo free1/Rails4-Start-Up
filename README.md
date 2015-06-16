@@ -49,7 +49,6 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 * 运行 `rbenv install 2.1.2` 。
 * 运行 `rbenv global 2.1.2` 。
 * 修改capistrano的ip地址。
-* 将服务器key填到git仓库。
 * 改变gem源: 
 
 ```
