@@ -19,3 +19,4 @@ config/database.yml
 /config/application.yml
 /db/sphinx/development/*
 /log/*.pid
+public/uploads/
