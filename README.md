@@ -52,3 +52,7 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 * 修改nginx，unicorn配置文件。
 * 本地执行 `cap production deploy` 。
 * 填写服务器配置，参考example。
+
+## Future
+
+* cap链接nginx.conf

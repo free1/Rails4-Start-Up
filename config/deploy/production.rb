@@ -10,7 +10,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'user@ip', roles: [:web, :app, :db]
+server 'deploy@120.24.48.251', roles: [:web, :app, :db]
 
 # Custom SSH Options
 # ==================
