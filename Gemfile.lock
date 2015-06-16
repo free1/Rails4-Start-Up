@@ -374,7 +374,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   figaro
   gemoji
-  god
+  god (~> 0.13.6)
   grape
   grape-entity
   grape-swagger
@@ -404,7 +404,7 @@ DEPENDENCIES
   rb-readline
   redis (~> 3.0.1)
   redis-objects
-  rinku (~> 1.7)
+  rinku (~> 1.7.3)
   rqrcode_png
   sass-rails (~> 5.0)
   sidekiq

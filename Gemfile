@@ -29,7 +29,7 @@ gem 'net-ssh'
 # html文本处理
 gem 'html-pipeline', "~> 1.11.0" # 之前版本有bug
 gem 'gemoji'
-gem "rinku", "~> 1.7",   :require => false
+gem "rinku", "~> 1.7.3",   :require => false
 
 # @功能
 gem 'jquery-atwho-rails', "~> 1.1.0"
@@ -96,7 +96,7 @@ gem 'will_paginate', '~> 3.0.6'
 # gem "obfuscate_id"
 
 # 监控
-gem 'god'
+gem 'god', '~> 0.13.6'
 
 # web server
 gem 'unicorn'

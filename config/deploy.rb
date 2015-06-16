@@ -1,6 +1,6 @@
 lock '3.3.5'
 
-set :application, 'rails4_start'
+set :application, 'rails4_start_up'
 set :repo_url, 'https://github.com/free1/Rails4-Start-Up.git'
 
 set :deploy_user, "deploy"
@@ -78,7 +78,7 @@ set :thinking_sphinx_rails_env, -> { fetch(:rails_env) || fetch(:stage) }
 set :sidekiq_pid, "./tmp/pids/sidekiq.pid"
 set :sidekiq_log, "log/sidekiq.log"
 
-before 'deploy:publishing', 'deploy:restart'
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
