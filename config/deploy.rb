@@ -100,6 +100,17 @@ namespace :deploy do
   end
 end
 
+# namespace :deploy do
+#   desc "after setup"
+#   task :setup_config do
+#     on roles(:all) do
+#       execute "#{fetch(:sudo)} ln -nfs #{fetch(:release_path)}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
+#     end
+#   end
+#   after 'deploy:published', 'deploy:setup_config'
+# end
+
+
 # # god
 # namespace :god do
 #   def god_is_running
