@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 	# include Obfuscate
+	mount_uploader :cover_path, AvatarUploader
 
 	# 发布人
 	belongs_to :user

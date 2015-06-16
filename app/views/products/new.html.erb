@@ -6,14 +6,17 @@
 
 <h2>创建演出</h2>
 
-<%= simple_form_for @product, html: { class: "form-horizontal"} do |f| %>
+<%= simple_form_for @product, html: { class: "form-horizontal",  multipart: true } do |f| %>
   <div class="col-sm-8 col-sm-offset-2">
     <%= f.input :title, input_html: { maxlength: 30, class: 'form-control' }, autofocus: true %>
     
     </br>
-    <%= f.input :cover_path, as: :hidden, input_html: { id: "cover_path", readonly: true } %>
-    <img src="<%= @product.cover_path %>" id="show_cover_path" width="100" height="100"/>
-    <a class="btn btn-default" id="pickfiles">上传封面图片</a>
+    <%#= f.input :cover_path, as: :hidden, input_html: { id: "cover_path", readonly: true } %>
+    <!-- <img src="<%= @product.cover_path %>" id="show_cover_path" width="100" height="100"/> -->
+    <!-- <a class="btn btn-default" id="pickfiles">上传封面图片</a> -->
+    <%= image_tag(@product.cover_path_url) if @product.cover_path? %>
+    <%= f.input :cover_path, as: :file %>
+    <%= f.input :cover_path_cache, as: :hidden %>
 
     <%#= f.input :describe, as: :text, input_html: { id: 'editor', maxlength: 5000 } %>
     <%= f.input :location, as: :text, input_html: {class: 'form-control'} %>
