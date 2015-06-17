@@ -10,7 +10,7 @@
 	<div class="row">
 		<article class="col-sm-12 col-md-7 col-md-offset-1 post-content">
 			<div>
-				<%= image_tag @product.cover_path_with_size("640", "300") %>
+				<%= image_tag @product.cover_path %>
 			</div>
 			<%= sanitize @product.describe %>
 		</article>

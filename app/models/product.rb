@@ -21,8 +21,8 @@ class Product < ActiveRecord::Base
 	# 排序
 	scope :category_for, ->(category_name) { joins(:categories).where("categories.name = ?", category_name)}
 
-	def cover_path_with_size(width, height)
-		"#{self.cover_path}?imageView2/1/w/#{width}/h/#{height}"
+	def incr
+		self.update_attribute(:watch_count, self.watch_count + 1)
 	end
 
 	# def to_param

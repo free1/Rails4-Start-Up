@@ -19,6 +19,7 @@ module V1
         route_param :id do
           get do
             product = Product.find(params[:id])
+            product.incr
             present product, with: V1::Entities::Products::ProductDetail
           end
         end
