@@ -13,13 +13,13 @@ module V1
         end
         get do
           products = Product.order(id: :desc).paginate(page: params[:page], per_page: params[:per_page])
-          present products, with: V1::Entities::Products
+          present products, with: V1::Entities::Products::Products
         end
 
         route_param :id do
           get do
             product = Product.find(params[:id])
-            present product, with: V1::Entities::ProductDetail
+            present product, with: V1::Entities::Products::ProductDetail
           end
         end
       end
