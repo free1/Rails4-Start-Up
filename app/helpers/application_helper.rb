@@ -3,7 +3,7 @@ module ApplicationHelper
 
 	# 浏览器顶部标题
 	def full_title(page_title)
-		base_title = "演出圈"
+		base_title = "学生票"
 		if page_title.empty?
 			base_title
 		else

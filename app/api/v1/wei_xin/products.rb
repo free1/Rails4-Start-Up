@@ -12,9 +12,15 @@ module V1
           optional :per_page, type: Integer, default: 10
         end
         get do
-          posts = Product.order(id: :desc).paginate(page: params[:page], per_page: params[:per_page])
+          products = Product.order(id: :desc).paginate(page: params[:page], per_page: params[:per_page])
+          present products, with: V1::Entities::Products
+        end
 
-          present posts, with: V1::Entities::Products
+        route_param :id do
+          get do
+            product = Product.find(params[:id])
+            present product, with: V1::Entities::ProductDetail
+          end
         end
       end
 
