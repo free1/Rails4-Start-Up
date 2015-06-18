@@ -113,6 +113,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'china_sms'
 
 group :assets do
   gem 'sass-rails', '~> 5.0'
