@@ -1,6 +1,7 @@
 # 基本介绍
 
-rails4快速开发产品原型的基础代码，结构清晰，注释详细，遵守rails约定规范，包含一些最基本的功能。可以[直接访问网站](http://121.42.161.252/)查看完整版。
+rails4快速开发产品原型的基础代码，结构清晰，注释详细，遵守rails约定规范，包含一些基本的功能。可以[直接访问网站](http://121.42.161.252/)查看完整版。
+
 
 ## 方案
 
@@ -23,6 +24,7 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 * Web容器：unicorn
 * 搜索：sunspot
 
+
 ## 功能组件
 
 * 搜索系统，使用更强大的sunspot，支持中文分词和定位分析，sphinx(暂时不支持中文分词)停止使用。
@@ -41,18 +43,4 @@ rails4快速开发产品原型的基础代码，结构清晰，注释详细，�
 
 ## 简单安装(测试运行在 Ubuntu 14.04 64位)
 
-* 进入远程服务器将 `install_server_module_to_ubuntu` 中的脚本放入一个文件中。
-* 运行命令 `chmod +x install_server_module_to_ubuntu` 使它变为可执行文件，并执行 `./install_server_module_to_ubuntu` 。
-* 输入deploy密码， `exit` 并以deploy用户进入服务器。
-* 同样执行 `./install_rails_module_to_deploy` 。
-* 要使rbenv生效需要新开一个deploy控制台。
-* 运行 `rbenv install 2.1.2` 。
-* 运行 `rbenv global 2.1.2` 。
-* 修改capistrano的ip地址。
-* 修改nginx，unicorn配置文件。
-* 本地执行 `cap production deploy` 。
-* 填写服务器配置，参考example。
-
-## Future
-
-* cap链接nginx.conf
+参考 `install_server_module_to_ubuntu` 和 `install_rails_module_to_deploy` 中的代码安装配置服务器即可。
