@@ -40,6 +40,20 @@ module V1
           end
         end
 
+        desc '登陆'
+        params do
+          requires :phone, type: String
+          requires :password, type: String
+        end
+        get '/signin' do
+          user = User.find_by(phone: params[:phone])
+          if user && user.authenticate(params[:password])
+            present user, with: V1::Entities::User::Users
+          else
+            error!('401 Unauthorized', 401)
+          end
+        end
+
       end
 
     end
