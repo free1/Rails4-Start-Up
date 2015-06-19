@@ -28,7 +28,8 @@ module V1
           user_code = UserPhoneCode.where(phone: params[:phone]).last
           if user_code && user_code.code == params[:code]
             remember_token = User.new_remember_token
-            user = User.new(phone: params[:phone], remember_token: User.encrypt(remember_token))
+            password = remember_token
+            user = User.new(phone: params[:phone], password: password, remember_token: User.encrypt(remember_token))
             if user.save
               present user, with: V1::Entities::User::Users
             else
