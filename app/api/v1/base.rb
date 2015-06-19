@@ -4,5 +4,6 @@ module V1
     prefix :api
 
     mount V1::WeiXin::Products
+    mount V1::WeiXin::Users
   end
 end

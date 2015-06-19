@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
   attr_accessor :subtitle # define a virtual attribute, the honeypot
   validates :subtitle, :invisible_captcha => true
 
-  # 验证
-  validates :name, presence: true, length: { in: 3..20 }, uniqueness: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, format: { with: VALID_EMAIL_REGEX },
-                    :allow_blank => true,
-                    uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 3 }, on: :create
+  # # 验证
+  # validates :name, presence: true, length: { in: 3..20 }, uniqueness: true
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, format: { with: VALID_EMAIL_REGEX },
+  #                   :allow_blank => true,
+  #                   uniqueness: { case_sensitive: false }
+  # validates :password, length: { minimum: 3 }, on: :create
 
   # 第三方账户
   has_many :authentications, dependent: :destroy
@@ -118,6 +118,18 @@ class User < ActiveRecord::Base
   end
 
   class << self
+
+    # 发送验证码
+    def send_verification_code(phone)
+      code = rand.to_s[2..7]
+      user_code = UserPhoneCode.new(phone: phone, code: code)
+      if user_code.save
+        ChinaSMS.use :yunpian, password: '5dc64e8c8250696ffd7bc6f8f09b27ad'
+        ChinaSMS.to "#{phone}", "您的验证码是#{code}。如非本人操作，请忽略本短信"
+      else
+        false
+      end
+    end
 
     # 密码加密
     def new_remember_token

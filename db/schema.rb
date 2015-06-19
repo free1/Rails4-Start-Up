@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615074908) do
+ActiveRecord::Schema.define(version: 20150619035500) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -212,6 +212,13 @@ ActiveRecord::Schema.define(version: 20150615074908) do
 
   add_index "user_infos", ["user_id"], name: "index_user_infos_on_user_id", using: :btree
 
+  create_table "user_phone_codes", force: :cascade do |t|
+    t.string   "phone",      limit: 255
+    t.integer  "code",       limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "user_tag_ships", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "tag_id",     limit: 4
@@ -235,6 +242,7 @@ ActiveRecord::Schema.define(version: 20150615074908) do
     t.string   "avatar_path",     limit: 255
     t.boolean  "is_email_push",   limit: 1,   default: true
     t.integer  "user_id",         limit: 4
+    t.string   "phone",           limit: 255
   end
 
   create_table "wechat_infos", force: :cascade do |t|
