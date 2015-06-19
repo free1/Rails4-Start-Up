@@ -16,8 +16,10 @@
 		<%= user_avatar(product.user.avatar_path, '40x40') %>
 		<%= link_to product.user.name, product.user %>
 		发布于
-		<%= time_ago_in_words product.created_at %>
-	
+		<%= time_ago_in_words product.created_at %> <br/>
+		原价: <%= @product.price %><br/>
+		现价: <%= @product.real_price %><br/>
+		查看数量: <%= @product.watch_count %>
 	<% when "category" %>
 		<div class="tips_content">所属标签</div>
 		<%= product.categories.map(&:name) %>
