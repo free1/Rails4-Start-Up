@@ -69,8 +69,8 @@ en:
         describe: '描述'
         location: '演出地点'
         show_time: '演出时间'
-        price: '票价'
-        
+        price: '原价'
+        real_price: '现价'
       wechat_info:
         public_name: '微信公众号名称'
         number: '微信号'

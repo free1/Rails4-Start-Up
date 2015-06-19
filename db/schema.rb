@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619035500) do
+ActiveRecord::Schema.define(version: 20150619120012) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20150619035500) do
     t.datetime "show_time"
     t.integer  "price",                       limit: 4,     default: 1
     t.integer  "watch_count",                 limit: 4,     default: 0
+    t.integer  "real_price",                  limit: 4,     default: 1
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
