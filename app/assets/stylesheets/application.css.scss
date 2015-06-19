@@ -11,7 +11,6 @@
  * file per style scope.
  *
  *= require jquery.atwho
- *= require_tree .
  *= require_self
  */
 @import "bootstrap-sprockets";
@@ -123,3 +122,127 @@ p {
 	line-height: 1.7em;
 }
 
+
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.glyphicon-star, .glyphicon-star-empty {
+	color: #fff;
+	font-size: 20px;
+	margin-left: 200px;
+}
+
+.content-side {
+	width: 220px;
+	float: left;
+	background: none repeat scroll 0% 0% #F7F7F7;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.content-side .section-name {
+	padding: 15px 0 0 15px;
+}
+
+.content-side .section-value {
+	margin-left: 15px;
+}
+
+.content-side .section-value li {
+	width: 90px;
+	height: 20px;
+	margin: 0px 10px 10px 0px;
+	float: left;
+	line-height: 20px;
+}
+
+.content-side .section-value a {
+	display: block;
+	width: 80px;
+	height: 20px;
+	padding-left: 10px;
+	background: none repeat scroll 0% 0% #EBEBEB;
+}
+
+.content-main .trip-g{
+	position: relative;
+	float: left;
+	margin: 0px 0px 15px 16px;
+	width: 330px;
+}
+
+.content-main .trip-g .cover{
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	display: block;
+}
+
+.trip-g .cover img {
+	min-width: 100%;
+}
+
+.content-main .trip-g .trip-c {
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: -10px;
+	z-index: 2;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.trip-c h1 {
+	color: #fff;
+	font-size: 20px;
+	overflow: hidden;
+	font-weight: normal;
+}
+
+.trip-c .trip-desc {
+	font-size: 12px;
+	color: #fff;
+}
+
+.content-main .trip-g .trip-collect {
+	position: absolute;
+	top: 175px;
+	left: 80px;
+}
+
+
+@import "scss_mixin_tools";
+
+/* 小贴士 */
+.tips {
+	background-color: white;
+	padding: 10px;
+	/*width: 225px;
+	height: 120px;*/
+	border-radius: 6px;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.15);
+	webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.15);
+	-webkit-border-radius: 4px;
+	float: right;
+	margin-bottom: 10px;
+}
+.tips p {
+	padding-top: 8px;
+	text-align: center;
+}
+.tips .tips_content {
+	text-align: center;
+	/*padding: 8px;*/
+}
+
+/*无限下拉分页*/
+.endless_paginate {
+	@include border-radius(5px);
+	border: 1px solid $border-color;
+	padding: 10px;
+	text-align: center;
+	width: 20%;
+	margin-left: 40%;
+	background-color: white;
+	color: #2475D1;
+}
