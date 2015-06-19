@@ -122,9 +122,10 @@ class User < ActiveRecord::Base
     # 发送验证码
     def send_verification_code(phone)
       code = rand.to_s[2..7]
-      user_code = UserPhoneCode.new(phone: phone, code: code)
-      if user_code.save
-        ChinaSMS.use :yunpian, password: '5dc64e8c8250696ffd7bc6f8f09b27ad'
+      user_code = UserPhoneCode.find_or_create_by(phone: phone)
+      if user_code
+        user_code.update_attribute(:code, code)
+        ChinaSMS.use :yunpian, password: 'a2d9474354e885b7f3b7c05cd0a6e845'
         ChinaSMS.to "#{phone}", "您的验证码是#{code}。如非本人操作，请忽略本短信"
       else
         false
