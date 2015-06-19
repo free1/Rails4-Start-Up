@@ -10,7 +10,7 @@ module V1
         params do
           requires :phone, type: String
         end
-        get '/send_verification_code' do
+        post '/send_verification_code' do
           send_code = User.send_verification_code(params[:phone])
           if send_code
             present :result, true
@@ -25,7 +25,7 @@ module V1
           requires :password, type: String
           requires :code, type: Integer
         end
-        get '/signup' do
+        post '/signup' do
           user_code = UserPhoneCode.where(phone: params[:phone]).last
           if user_code && user_code.code == params[:code]
             remember_token = User.new_remember_token
@@ -45,7 +45,7 @@ module V1
           requires :phone, type: String
           requires :code, type: Integer
         end
-        get '/signin' do
+        post '/signin' do
           user = User.find_by(phone: params[:phone])
           user_code = UserPhoneCode.where(phone: params[:phone]).last
           if user && user_code.code == params[:code]
