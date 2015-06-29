@@ -25,18 +25,23 @@ module V1
           requires :code, type: Integer
         end
         post '/signup' do
-          user_code = UserPhoneCode.where(phone: params[:phone]).last
-          if user_code && user_code.code == params[:code]
-            remember_token = User.new_remember_token
-            password = remember_token
-            user = User.new(phone: params[:phone], password: password, remember_token: User.encrypt(remember_token))
-            if user.save
-              present user, with: V1::Entities::User::Users
+          user = User.find_by(phone: params[:phone])
+          if user.nil?
+            user_code = UserPhoneCode.where(phone: params[:phone]).last
+            if user_code && user_code.code == params[:code]
+              remember_token = User.new_remember_token
+              password = remember_token
+              user = User.new(phone: params[:phone], password: password, remember_token: User.encrypt(remember_token))
+              if user.save
+                present user, with: V1::Entities::User::Users
+              else
+                error!('validates errors', 409)
+              end
             else
-              error!('validates errors', 409)
+              error!('not validates phone', 404)
             end
           else
-            error!('not validates phone', 404)
+            error!('user present', 408)
           end
         end
 
